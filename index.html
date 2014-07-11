@@ -31,7 +31,7 @@
   </body>
   
   <script type="text/javascript">
-    var context = {
+    var sensors = {
   morning: function(){
       var x = new Date(); 
     x = x.getHours()
@@ -49,20 +49,20 @@
   },
 };
 
-for (var x in context) {
-  console.log(context[x]());
+for (var x in sensors) {
+  console.log(sensors[x]());
 }
 
-    for (x in context) {
+    for (x in sensors) {
       yepnope([{
-        test:  context[x](),
+        test:  sensors[x](),
         yep: "contexts/" + x + ".js",
         complete: function(){
           console.log(message);
         }
       }]);
 
-      if(context[x]()){
+      if(sensors[x]()){
         var html = document.documentElement;
         html.className += "is-" + x;
       };
